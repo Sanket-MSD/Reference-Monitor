@@ -20,7 +20,7 @@ FUNC="func"
 OBJC="objc"
 
 class ABFile():
-  def __init__(self,filename,create):
+  def __init__(self, filename, create):
     # globals
     mycontext['debug'] = False 
     
@@ -44,19 +44,21 @@ class ABFile():
             self.Bfile = openfile(self.Bfn, create)
             self.Afile.writeat('SE', 0)    
       
- # self.AfilenameLock = createlock()
- # self.BfilenameLock = createlock()
-  
+    self.fileLock = createlock()
+
   def writeat(self, data, offset):
     
     # Write the requested data to the B file using the sandbox's writeat call
-#    self.BfilenameLock.acquire(True)
-    self.Bfilename.writeat(data, offset)
-#    self.BfilenameLock.release()
+    self.fileLock.acquire(True)
+    self.Bfile.writeat(data, offset)
+    self.fileLock.release()
   
-  def readat(self,bytes,offset):
+  def readat(self, bytes, offset):
     # Read from the A file using the sandbox's readat...
-    return self.Afile.readat(bytes,offset)
+    self.fileLock.acquire(True)
+    AfileData = self.Afile.readat(bytes, offset)
+    self.fileLock.release()
+    return AfileData
 
   def close(self):
     self.Afile.close()
