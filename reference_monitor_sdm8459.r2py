@@ -68,6 +68,7 @@ class ABFile():
         self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
+    removefile(self.Afn)
     removefile(self.Bfn)
 
 
