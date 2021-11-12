@@ -31,8 +31,8 @@ class ABFile():
     # make the files and add 'SE' to the readat file...
 #    if create:
       if self.Afn in listfiles():
-        self.Afile = openfile(self.Afn, True)
-        self.Bfile = openfile(self.Bfn, True)
+        self.Afile = openfile(self.Afn, create)
+        self.Bfile = openfile(self.Bfn, create)
         self.Bfile.writeat(self.Afile.readat(None, 0), 0)
       elif create:
         self.Afile = openfile(self.Afn, create)
