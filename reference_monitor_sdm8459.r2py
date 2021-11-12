@@ -60,16 +60,6 @@ class ABFile():
     return AfileData
 
   def close(self):
-    offsetStart = 0
-    offsetEnd = -1
-    AfileData = self.Afile.readat(bytes, offset)
-    BfileData = self.Bfile.readat(bytes, offset)
-    
-    if (BfileData[offsetStart] == 'S') and (BfileData[offsetEnd] == 'E'): 
-        self.Afile.writeat(BfileData, 0)
- #   else:
- #       self.Bfile.writeat(AfileData, 0)
-    
     self.Afile.close()
     self.Bfile.close()
 
