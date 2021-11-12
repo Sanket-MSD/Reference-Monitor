@@ -68,7 +68,7 @@ class ABFile():
         self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
-    removefile(self.Bfn)
+#    removefile(self.Bfn)
 
 
 def ABopenfile(filename, create):
