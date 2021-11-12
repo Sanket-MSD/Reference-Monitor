@@ -36,7 +36,7 @@ class ABFile():
       self.Afile = openfile(self.Afn,create)
       self.Bfile = openfile(self.Bfn,create)
       if self.Afn in listfiles():
-        self.Bfile.writeat(self.Afile.reatat(None, 0), 0)
+        self.Bfile.writeat(self.Afile.readat(None, 0), 0)
       else:
         self.Afile.writeat('SE',0)
     else:
