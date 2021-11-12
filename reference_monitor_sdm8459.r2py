@@ -27,7 +27,7 @@ class ABFile():
     # local (per object) reference to the underlying file
     self.Afn = filename+'.a'
     self.Bfn = filename+'.b'
-    self.fileLock = createlock()
+    #self.fileLock = createlock()
 
     # make the files and add 'SE' to the readat file...
  #   if create:
@@ -48,15 +48,15 @@ class ABFile():
   def writeat(self, data, offset):
     
     # Write the requested data to the B file using the sandbox's writeat call
-    self.fileLock.acquire(True)
+    #self.fileLock.acquire(True)
     self.Bfile.writeat(data, offset)
-    self.fileLock.release()
+    #self.fileLock.release()
   
   def readat(self, bytes, offset):
     # Read from the A file using the sandbox's readat...
-    self.fileLock.acquire(True)
+    #self.fileLock.acquire(True)
     AfileData = self.Afile.readat(bytes, offset)
-    self.fileLock.release()
+    #self.fileLock.release()
     return AfileData
 
   def close(self):
@@ -68,7 +68,6 @@ class ABFile():
         self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
-    removefile(self.Afn)
     removefile(self.Bfn)
 
 
