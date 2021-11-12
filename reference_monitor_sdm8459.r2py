@@ -38,12 +38,13 @@ class ABFile():
         self.Afile = openfile(self.Afn, create)
         self.Bfile = openfile(self.Bfn, create)
         self.Afile.writeat('SE', 0)
-    else:
+        self.Bfile.writeat(self.Afile.readat(None, 0), 0)
+#    else:
       #Check if Backup File Present, else raise an Exception
-      if self.Afn in listfiles():
-        self.Afile = openfile(self.Afn,True)
-        self.Bfile = openfile(self.Bfn,True)
-        self.Bfile.writeat(self.Afile.readat(None,0),0)
+#      if self.Afn in listfiles():
+#        self.Afile = openfile(self.Afn,True)
+#        self.Bfile = openfile(self.Bfn,True)
+#        self.Bfile.writeat(self.Afile.readat(None,0),0)
       
   def writeat(self,data,offset):
     
