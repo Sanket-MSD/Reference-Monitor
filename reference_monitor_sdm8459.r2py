@@ -53,12 +53,12 @@ class ABFile():
     return self.Afile.readat(bytes, offset)
 
   def close(self):
-    #AfileData = self.Afile.readat(None, 0)
-    #BfileData = self.Bfile.readat(None, 0)
+    AfileData = self.Afile.readat(None, 0)
+    BfileData = self.Bfile.readat(None, 0)
     if (BfileData[0] == 'S') and (BfileData[-1] == 'E'): 
-        self.Afile.writeat(self.Bfile.readat(None, 0), 0)
+        self.Afile.writeat(BfileData, 0)
     else:
-        self.Bfile.writeat(self.Afile.readat(None, 0), 0)
+        self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
 
