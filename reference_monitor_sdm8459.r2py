@@ -38,7 +38,7 @@ class ABFile():
         self.Afile = openfile(self.Afn, create)
         self.Bfile = openfile(self.Bfn, create)
         self.Afile.writeat('SE', 0)
-        self.Bfile.writeat(self.Afile.readat(None, 0), 0)
+#        self.Bfile.writeat(self.Afile.readat(None, 0), 0)
       
  # self.AfilenameLock = createlock()
  # self.BfilenameLock = createlock()
