@@ -63,12 +63,11 @@ class ABFile():
     AfileData = self.Afile.readat(bytes, offset)
     BfileData = self.Bfile.readat(bytes, offset)
     if (BfileData[0] == 'S') and (BfileData[-1] == 'E'): 
-        self.Afn.writeat(BfileData, 0)
+        self.Afile.writeat(BfileData, 0)
     else:
-        self.Bfn.writeat(AfileData, 0)
+        self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
-    removefile(self.Afn)
     removefile(self.Bfn)
 
 
