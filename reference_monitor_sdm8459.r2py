@@ -30,12 +30,15 @@ class ABFile():
     
     # make the files and add 'SE' to the readat file...
     if create:
+        # initial check if A-file present in the list, if not create one and write 'SE'
         if self.Afn not in listfiles():
             self.Afile = openfile(self.Afn, create)
             self.Afile.writeat('SE', 0)    
         else:
             self.Afile = openfile(self.Afn, create)
+        # after A-file check and open, also refer as with B-file
         self.Bfile = openfile(self.Bfn, create)
+    # if both A/B-files present, open them and write the content of A-file to B-file
     else:
        self.Afile = openfile(self.Afn, True)
        self.Bfile = openfile(self.Bfn, True)       
@@ -50,11 +53,16 @@ class ABFile():
     return self.Afile.readat(bytes, offset)
 
   def close(self):
+    # Reading the data of A/B-file instances
     AfileData = self.Afile.readat(None, 0)
     BfileData = self.Bfile.readat(None, 0)
+   
+    # checking if the latest content written to the B-file is valid or not
     if (BfileData[0] == 'S') and (BfileData[-1] == 'E'): 
+        # if B-file is valid, copy the content of B-file to A-file
         self.Afile.writeat(BfileData, 0)
     else:
+        # if B-file is invalid, copy the content of A-file (backup file) to B-file
         self.Bfile.writeat(AfileData, 0)
     self.Afile.close()
     self.Bfile.close()
