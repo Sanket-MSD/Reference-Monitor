@@ -71,8 +71,6 @@ def ABopenfile(filename, create):
   return ABFile(filename,create)
 
 
-
-
 # The code here sets up type checking and variable hiding for you.  You
 # should not need to change anything below here.
 sec_file_def = {"obj-type":ABFile,
