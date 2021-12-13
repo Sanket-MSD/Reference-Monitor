@@ -7,7 +7,7 @@ if "testfile.txt.b" in listfiles():
 	removefile("testfile.txt.b")
 
 # Open File Function Call
-myfile=ABopenfile("testfile.txt",False)  #Create an AB file
+myfile=ABopenfile("testfile.txt",True)  #Create an AB file
 
 try:
 	# Valid file should begin with S and end with E
