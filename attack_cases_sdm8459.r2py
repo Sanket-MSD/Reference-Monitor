@@ -1,21 +1,21 @@
-# New File Operation
+# Existing File Operation
 
 # Clean up of existing file
 if "testfile.txt.a" in listfiles():
-	removefile("testfile.txt.a")
+ removefile("testfile.txt.a")
 if "testfile.txt.b" in listfiles():
-	removefile("testfile.txt.b")
+ removefile("testfile.txt.b")
 
 # Open File Function Call
-myfile=ABopenfile("testfile.txt",True)  #Create an AB file
+myfile=ABopenfile("testfile.txt",False)  #Open an existing testfile
 
 try:
-	# Valid file should begin with S and end with E
-	assert('S' == myfile.readat(None,0)[0])
-	assert('E' == myfile.readat(None, 0)[-1])
-	# Close the file:
-	myfile.close()
+ # Valid file should begin with S and end with E
+ assert('S' == myfile.readat(None,0)[0])
+ assert('E' == myfile.readat(None, 0)[-1])
+ # Close the file:
+ myfile.close()
 except:
-	myfile.close()
-	# Error Handle or Failure Condition
-	log("Valid file is not handled properly!")
+ myfile.close()
+ # Error Handle or Failure Condition
+ log("Valid file is not handled properly!")
