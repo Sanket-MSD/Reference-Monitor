@@ -20,7 +20,6 @@ def file_check(myfile):
 		myfile.close()
 		# Error Handle or Failure Condition
 		log("Empty file is not handled properly!")
-	return pass
 
 file_check(myfile)
 
