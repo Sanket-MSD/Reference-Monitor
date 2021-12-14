@@ -1,10 +1,16 @@
-# Existing File Operation
+'''
+Name: Sanket Mendapara
+Net ID: sdm8459
+Attack Scenario for Reference Monitor
+'''
+
+# New and Existing File Operation
 
 # Clean up of existing file
 if "testfile.txt.a" in listfiles():
- removefile("testfile.txt.a")
+	removefile("testfile.txt.a")
 if "testfile.txt.b" in listfiles():
- removefile("testfile.txt.b")
+	removefile("testfile.txt.b")
 
 # Open File Function Call
 myfile=ABopenfile("testfile.txt", False)  #Open an existing testfile
@@ -22,6 +28,7 @@ def file_check(myfile):
 		log("Empty file is not handled properly!")
 
 file_check(myfile)
-# put some valid data in the file.
+
+# testcase - invalid write operation
 myfile.writeat("Sattack1337", 0)
 file_check(myfile)
