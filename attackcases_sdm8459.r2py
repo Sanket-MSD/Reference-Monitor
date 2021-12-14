@@ -22,3 +22,6 @@ def file_check(myfile):
 		log("Empty file is not handled properly!")
 
 file_check(myfile)
+# put some valid data in the file.
+myfile.writeat("Sattack1337", 0)
+file_check(myfile)
