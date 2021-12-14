@@ -1,8 +1,8 @@
-'''
+"""
 Name: Sanket Mendapara
 Net ID: sdm8459
 Attack Scenario for Reference Monitor
-'''
+"""
 
 # New and Existing File Operation
 
@@ -25,8 +25,12 @@ def file_check(myfile):
 	except:
 		myfile.close()
 		# Error Handle or Failure Condition
-		log("Empty file is not handled properly!")
+		log("File storage is not handled properly!")
 
+file_check(myfile)
+
+# testcase - valid write operation
+myfile.writeat("S@tt@ck1EE7E", 0)
 file_check(myfile)
 
 # testcase - invalid write operation
