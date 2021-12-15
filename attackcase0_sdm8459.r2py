@@ -1,7 +1,7 @@
 """
 Name: Sanket Mendapara
 Net ID: sdm8459
-Attack Scenario for Reference Monitor
+Attack Cases Test0 of Reference Monitor
 """
 
 # New and Existing File Operation
@@ -27,12 +27,4 @@ def file_check(myfile):
 		# Error Handle or Failure Condition
 		log("File storage is not handled properly!")
 
-file_check(myfile)
-
-# testcase - valid write operation
-myfile.writeat("S@tt@ck1EE7E", 0)
-file_check(myfile)
-
-# testcase - invalid write operation
-myfile.writeat("Sattack1337", 0)
 file_check(myfile)
