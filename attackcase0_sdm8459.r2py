@@ -1,0 +1,30 @@
+"""
+Name: Sanket Mendapara
+Net ID: sdm8459
+Attack Cases Test0 of Reference Monitor
+"""
+
+# New and Existing File Operation
+
+# Clean up of existing file
+if "testfile.txt.a" in listfiles():
+	removefile("testfile.txt.a")
+if "testfile.txt.b" in listfiles():
+	removefile("testfile.txt.b")
+
+# Open File Function Call
+myfile=ABopenfile("testfile.txt", False)  #Open an existing testfile
+
+def file_check(myfile):
+	try:
+		# Empty/New File should have contents 'SE' satisfying the requirement
+		assert('S' == myfile.readat(None,0)[0])
+		assert('E' == myfile.readat(None,0)[-1])
+		# Close the file:
+		myfile.close()
+	except:
+		myfile.close()
+		# Error Handle or Failure Condition
+		log("File storage is not handled properly!")
+
+file_check(myfile)
